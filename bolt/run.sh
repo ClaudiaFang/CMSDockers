@@ -1,0 +1,1 @@
+docker run  -d --name bolt -p 7200:2015 unitedasian/bolt:latest

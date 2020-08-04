@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  joomla:
+    image: joomla
+    restart: always
+    links:
+      - joomladb:mysql
+    ports:
+      - 7200:80
+    environment:
+      JOOMLA_DB_NAME: joomla
+      JOOMLA_DB_HOST: joomladb
+      JOOMLA_DB_USER: root
+      JOOMLA_DB_PASSWORD: 123456
+
+  joomladb:
+    image: mysql:5.6
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DB_NAME: joomla
+    ports:
+        - "3306:3306"
